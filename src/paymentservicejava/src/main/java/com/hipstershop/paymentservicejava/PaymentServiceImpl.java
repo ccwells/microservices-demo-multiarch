@@ -31,7 +31,8 @@ public class PaymentServiceImpl extends PaymentServiceGrpc.PaymentServiceImplBas
     public void charge(ChargeRequest request,
         io.grpc.stub.StreamObserver<ChargeResponse> responseObserver) {
             log.info("Charge request received. Storing credit card details for latent charging and chargebacks.");
-                    
+            //log.info("Good job fixing the vulnerability. Your FLAG: RemoteExecution");
+
             String currency = request.getAmount().getCurrencyCode();
             Long amount = request.getAmount().getUnits();
             int nanos = request.getAmount().getNanos();

