@@ -55,16 +55,16 @@ def checkout(l):
     i = random.randrange(1,10,1)
     if i>=7:
         l.client.post("/cart/checkout", {
-            'email': 'taylorswift@taylorswift.com',
-            'street_address': '1600 Amphitheatre Parkway',
-            'zip_code': '94043',
-            'city': 'Mountain View',
-            'state': 'CA',
-            'country': 'United States',
-            'credit_card_number': '4432-8015-6152-0454',
-            'credit_card_expiration_month': '1',
-            'credit_card_expiration_year': '2039',
-            'credit_card_cvv': '672',
+            'email': 'jason@sudeikis.com',
+            'street_address': '42 Beaconsfield Road',
+            'zip_code': 'KT25JN',
+            'city': 'Richmond',
+            'state': 'England',
+            'country': 'United Kingdom',
+            'credit_card_number': '0408-1516-2300-4200',
+            'credit_card_expiration_month': '7',
+            'credit_card_expiration_year': '2026',
+            'credit_card_cvv': '854',
         })
     else:
         l.client.post("/cart/checkout", {
