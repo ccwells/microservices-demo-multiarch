@@ -56,6 +56,8 @@ var (
 		"CAD": true,
 		"JPY": true,
 		"GBP": true,
+		"SGD": true,
+		"AUD": true,
 		"TRY": true}
 )
 
